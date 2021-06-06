@@ -14,8 +14,8 @@ class ProfileContent extends StatelessWidget {
               child: CircleAvatar(
                 backgroundColor: TCESPGreyColor,
                 radius: 80,
-                child: Image.network(
-                  'https://image.freepik.com/vetores-gratis/design-de-avatar-de-pessoa_24877-38140.jpg',
+                child: Image(
+                  image: AssetImage('assets/images/avatar.jpg'),
                 ),
               ),
             ),

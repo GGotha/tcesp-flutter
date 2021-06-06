@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tcesp/models/portal_model.dart';
 import 'package:tcesp/themes/colors.dart';
@@ -19,22 +18,8 @@ class PortalDetailsScreen extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              child: CachedNetworkImage(
-                imageUrl: '${portals.image}',
-                placeholder: (context, url) => Container(
-                  child: Container(
-                    margin: EdgeInsets.symmetric(
-                      vertical: 20,
-                    ),
-                    child: Center(
-                      child: CircularProgressIndicator(
-                        valueColor:
-                            new AlwaysStoppedAnimation<Color>(TCESPGreyColor),
-                      ),
-                    ),
-                  ),
-                ),
-                errorWidget: (context, url, error) => Icon(Icons.error),
+              child: Image(
+                image: AssetImage('assets/images/${portals.image}'),
               ),
             ),
             Center(
