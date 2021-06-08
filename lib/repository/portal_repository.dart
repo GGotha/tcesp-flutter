@@ -16,6 +16,7 @@ class PortalRepository {
           id: 1,
           name: 'Portal Campinas',
           image: 'bauru.jpg',
+          isOverSpend: false,
         ),
       );
       portals.add(
@@ -23,6 +24,7 @@ class PortalRepository {
           id: 2,
           name: 'Portal São José dos Campos',
           image: 'campinas.jpg',
+          isOverSpend: true,
         ),
       );
       portals.add(
@@ -30,6 +32,7 @@ class PortalRepository {
           id: 3,
           name: 'Portal São Paulo',
           image: 'saopaulo.jpg',
+          isOverSpend: false,
         ),
       );
       portals.add(
@@ -37,6 +40,7 @@ class PortalRepository {
           id: 4,
           name: 'Portal Osasco',
           image: 'osasco.jpg',
+          isOverSpend: true,
         ),
       );
       portals.add(
@@ -44,6 +48,7 @@ class PortalRepository {
           id: 5,
           name: 'Portal Suzano',
           image: 'suzano.jpg',
+          isOverSpend: false,
         ),
       );
       portals.add(
@@ -51,6 +56,7 @@ class PortalRepository {
           id: 6,
           name: 'Portal Jundiaí',
           image: 'jundiai.jpg',
+          isOverSpend: false,
         ),
       );
       portals.add(
@@ -58,6 +64,7 @@ class PortalRepository {
           id: 7,
           name: 'Portal Bauru',
           image: 'bauru.jpg',
+          isOverSpend: true,
         ),
       );
       portals.add(
@@ -65,6 +72,7 @@ class PortalRepository {
           id: 8,
           name: 'Portal Sorocaba',
           image: 'sorocaba.jpg',
+          isOverSpend: false,
         ),
       );
     }
