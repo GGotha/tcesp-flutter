@@ -1,16 +1,10 @@
 # tcesp
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<h3>Integrantes</h3>
+<ul>
+  <li>Carlos Alberto de Araújo Simões Júnior, RM82653</li>
+  <li>José Vitor Barbosa Teixeira das Neves, RM83896</li>
+  <li>Victor Arnone Francesco, RM83442</li>
+  <li>Gustavo Henrique Gotha Ferrer, RM82413</li>
+  <li>Wagner Gonçalves, RM83459</li>
+</ul>
