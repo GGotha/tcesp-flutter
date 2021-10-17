@@ -8,3 +8,9 @@
   <li>Gustavo Henrique Gotha Ferrer, RM82413</li>
   <li>Wagner Gonçalves, RM83459</li>
 </ul>
+
+<h3>Features</h3>
+<ul>
+  <li>Firebase ✔️</li>
+  <li>MobX ✔️</li>
+</ul>

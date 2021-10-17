@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tcesp/models/portal_model.dart';
 import 'package:tcesp/themes/colors.dart';
 
 // ignore: must_be_immutable
 class PortalList extends StatelessWidget {
-  PortalModel portals;
+  final portals;
 
   PortalList({
     Key key,

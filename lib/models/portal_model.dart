@@ -8,6 +8,6 @@ class PortalModel {
     this.id,
     this.name,
     this.image,
-    this.isOverSpend,
+    this.isOverSpend = false,
   });
 }
