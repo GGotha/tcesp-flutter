@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -25,9 +24,9 @@ class _MyAppState extends State<MyApp> {
   final List<Message> messages = [];
 
   final AndroidNotificationChannel channel = AndroidNotificationChannel(
-    'high_importance_channel', // id
-    'High Importance Notifications', // title
-    'This channel is used for important notifications.', // description
+    'high_importance_channel',
+    'High Importance Notifications',
+    'This channel is used for important notifications.',
     importance: Importance.high,
   );
   @override
@@ -42,38 +41,65 @@ class _MyAppState extends State<MyApp> {
 
     firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) async {
-        print("onMessage: $message");
         final notification = message['notification'];
 
-        print('notification $notification');
         flutterLocalNotificationsPlugin.show(
-            notification.hashCode,
-            notification.title,
-            notification.body,
+            1,
+            notification['title'],
+            notification['body'],
             NotificationDetails(
               android: AndroidNotificationDetails(
                 channel.id,
                 channel.name,
                 channel.description,
-                // icon: android.smallIcon,
               ),
             ));
-        setState(() {});
       },
-      onLaunch: (Map<String, dynamic> message) async {
-        print("onLaunch: $message");
-
-        final notification = message['data'];
-
-        print('notification $notification');
-        setState(() {});
-      },
-      onResume: (Map<String, dynamic> message) async {
-        print("onResume: $message");
-      },
+      onLaunch: (Map<String, dynamic> message) async {},
+      onResume: (Map<String, dynamic> message) async {},
     );
     firebaseMessaging.requestNotificationPermissions(
         const IosNotificationSettings(sound: true, badge: true, alert: true));
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final token = getToken();
+
+      postNotify(token);
+    });
+  }
+
+  Future<String> getToken() async {
+    FirebaseMessaging firebaseMessaging = FirebaseMessaging();
+
+    return await firebaseMessaging.getToken();
+  }
+
+  postNotify(token) async {
+    try {
+      final tokenFormatted = await token;
+
+      print(tokenFormatted);
+
+      var url = Uri.parse('https://fcm.googleapis.com/fcm/send');
+
+      await http.post(url,
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization":
+                "key=AAAA4siCy2w:APA91bFS_rPAStOTWh6WGoAov5f3nTly4aryt9dnS1a9PxFKEkOowIS2svyx39brvl0EYSVrbXltgUKuzdkmchqjKy-2nBIaCJiwzUWQZ-0ydSkiOCSZnSNboi35UbwxzAnqUpTnblWr"
+          },
+          body: jsonEncode({
+            "to": tokenFormatted,
+            "notification": {
+              "title": "Bem-vindo ao TCESP",
+              "body": "Cheque as mais novas novidades aqui!",
+              "mutable_content": true,
+              "sound": "Tri-tone"
+            },
+          }));
+    } catch (e) {
+      return;
+    }
   }
 
   @override
