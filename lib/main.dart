@@ -78,8 +78,6 @@ class _MyAppState extends State<MyApp> {
     try {
       final tokenFormatted = await token;
 
-      print(tokenFormatted);
-
       var url = Uri.parse('https://fcm.googleapis.com/fcm/send');
 
       await http.post(url,

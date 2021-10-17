@@ -62,12 +62,9 @@ class _TcespButtonState extends State<TcespButton> {
                               underline:
                                   Container(height: 2, color: TCESPGreyColor),
                               onChanged: (String newValue) {
-                                print('newValue $newValue');
                                 setState(() {
                                   dropdownValue = newValue;
                                 });
-
-                                print('dropdownValue $dropdownValue');
                               },
                               value: dropdownValue,
                               items: isOverSpendList
